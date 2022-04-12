@@ -1,12 +1,16 @@
 import Banner from "./Components/Banner";
-
-
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Start from "./Pages/Start"
 function App() {
   return (
-    <div>
-      <h1>My Social Website</h1>
-      <Banner test={"manual"}/>
-    </div>
+    
+    <BrowserRouter>
+      <Routes>
+        <Route path="./Pages.Start">
+          <Start/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
