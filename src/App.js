@@ -6,9 +6,7 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Route path="./Pages.Start">
-          <Start/>
-        </Route>
+        <Route path="/" element={<Start/>}/>
       </Routes>
     </BrowserRouter>
   );
