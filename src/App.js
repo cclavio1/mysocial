@@ -3,7 +3,6 @@ import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Start from "./Pages/Start"
 function App() {
   return (
-    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Start/>}/>
