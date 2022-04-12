@@ -1,7 +1,11 @@
+import NavBar from "../Components/NavBar"
 
 export default function Start(){
     return(
-        <h1>start page</h1>
-        
+        <div>
+        <NavBar/>
+          <h1>My Social</h1>
+          
+        </div>
     )
 }
