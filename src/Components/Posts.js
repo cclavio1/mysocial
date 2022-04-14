@@ -7,7 +7,7 @@ export default function Posts(props){
 </div>)
     return(
         <div>
-            <h1>this will display posts</h1>
+            <h1>Loading Posts</h1>
             {posts}
         </div>
     )

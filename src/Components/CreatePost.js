@@ -1,5 +1,5 @@
 import { useState } from "react";
-const { Modal,Button } = require("react-bootstrap")
+const { Modal,Button, Form } = require("react-bootstrap")
 
 export default function CreatePost(props){
 
@@ -10,20 +10,26 @@ export default function CreatePost(props){
     return(
         <>
            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                Create a Post
             </Button>
 
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Create a post</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group>
+                            <Form.Control placeholder="What's on your mind?"/>
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
-                    Close
+                    Cancel
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                    Save Changes
+                    Post
                 </Button>
                 </Modal.Footer>
             </Modal>
