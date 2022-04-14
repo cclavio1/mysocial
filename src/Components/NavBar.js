@@ -11,8 +11,8 @@ export default function NavBar(){
                 <img src={logo} className="img-fluid rounded-circle" style={{ width:"75px"
             }}></img> <h1>Social</h1>
                 <ol className='mx-auto'>
-                    <a className='nav-links mx-5 text-light'>Sample Links1</a>
-                    <a className='nav-links text-light'>Sample Links2</a>
+                    <a className='mx-5 btn btn-outline-light'>Sample Links1</a>
+                    <a className='mx-5 btn btn-outline-light'>Sample Links2</a>
                 </ol>
             </ul>
         </div>
