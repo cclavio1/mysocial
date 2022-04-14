@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap"
+import CreatePost from "../Components/CreatePost"
 import NavBar from "../Components/NavBar"
 import Posts from "../Components/Posts"
 import Profile from "../Components/Profile"
@@ -13,6 +14,7 @@ export default function Start(){
               <Profile />
             </Col>
             <Col xs={9}>
+              <CreatePost/>
               <Posts />
             </Col>
           </Row>
