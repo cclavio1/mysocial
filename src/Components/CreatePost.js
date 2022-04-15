@@ -4,8 +4,12 @@ const { Modal,Button, Form } = require("react-bootstrap")
 export default function CreatePost(props){
 
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () =>{ 
+        setShow(false)
+        alert(post)
+    };
     const handleShow = () => setShow(true);
+    const [post,setPost]= useState("")
 
     return(
         <>
@@ -20,7 +24,7 @@ export default function CreatePost(props){
                 <Modal.Body>
                     <Form>
                         <Form.Group>
-                            <Form.Control placeholder="What's on your mind?"/>
+                            <Form.Control placeholder="What's on your mind?" onChange={(e)=>setPost(e.target.value)}/>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
