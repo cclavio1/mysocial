@@ -19,7 +19,7 @@ export default function CreatePost(props){
             })
         }).then(result=>result.json())
         .then(result=>{
-            alert(result)
+            
         })
         
     };
