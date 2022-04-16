@@ -17,7 +17,8 @@ export default function CreatePost(props){
                 text:post,
                 imgurl:""
             })
-        })
+        }).then(result=>result.json())
+        
         
     };
     const handleShow = () => setShow(true);
