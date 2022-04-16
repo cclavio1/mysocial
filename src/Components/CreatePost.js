@@ -6,7 +6,19 @@ export default function CreatePost(props){
     const [show, setShow] = useState(false);
     const handleClose = () =>{ 
         setShow(false)
-        alert(post)
+        
+        fetch('https://pacific-harbor-39764.herokuapp.com/api/posts/',{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify({
+                username:localStorage.getItem('username'),
+                text:post,
+                imgurl:""
+            })
+        })
+        
     };
     const handleShow = () => setShow(true);
     const [post,setPost]= useState("")
