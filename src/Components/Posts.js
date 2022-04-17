@@ -7,7 +7,12 @@ export default function Posts(props){
 </div>)
 
 useEffect(()=>{
-    //fetch posts here
+    fetch('https://pacific-harbor-39764.herokuapp.com/api/posts')
+    .then(result=>result.json())
+    .then(result=>{
+        setPosts(posts=result)
+        console.log(result)
+    })
 },[])
     return(
         <div>
