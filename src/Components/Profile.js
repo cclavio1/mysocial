@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap"
 
 export default function Profile(props){
     return(
-        <Card>
+        <Card style={{position:"fixed",maxWidth:"300px"}}>
             <Card.Header>{props.username?props.username:"Guest"}</Card.Header>
             <Card.Body><img className="img-fluid" src={props.imgurl}/></Card.Body>
         </Card>

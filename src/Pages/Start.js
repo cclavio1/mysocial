@@ -10,10 +10,10 @@ export default function Start(){
         <NavBar/>
         <Container className="text-center container-fluid">
           <Row>
-            <Col md={3} className="d-none d-md-block align-items-center">
-              <Profile />
+            <Col lg={3} className="d-none d-lg-block">
+              <Profile/>
             </Col>
-            <Col md={9}xs={12}>
+            <Col lg={9}xs={12}>
               <CreatePost/>
               <Posts />
             </Col>

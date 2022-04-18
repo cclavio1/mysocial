@@ -4,12 +4,14 @@ import {Modal,Button, Form} from 'react-bootstrap';
 import logo from './../MySocialLogo.png'
 
 
-export default function NavBar(){
+export default function NavBar(props){
     const [show, setShow] = useState(false);
     const handleClose = () =>setShow(false)
     const handleShow = () => setShow(true);
     const [username,setUsername]=useState('')
     const [pw,setPw]=useState('')
+
+
 
     return(
         <div className='sticky-top' style={{
@@ -21,8 +23,11 @@ export default function NavBar(){
                 <img src={logo} className="img-fluid rounded-circle" style={{ width:"75px"
             }}></img> <h1>Social</h1>
                 <ol className='mx-auto'>
-                    <a className='mx-5 btn btn-outline-light' onClick={handleShow}>Login</a>
-                    <a className='mx-5 btn btn-outline-light'>Sample Links2</a>
+                    {
+                        props.username==null?                                
+                        <a className='mx-5 btn btn-outline-light' onClick={handleShow}>Login</a>
+                        :<a className='mx-5 btn btn-outline-light'>Logout</a>
+                    }
                 </ol>
             </ul>
 
@@ -40,9 +45,6 @@ export default function NavBar(){
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
                 <Button variant="primary" onClick={handleClose}>
                     Login
                 </Button>
