@@ -1,9 +1,13 @@
+import { Card } from "react-bootstrap"
 
 
 
 export default function Profile(props){
     return(
-        <h1>this will display profile</h1>
+        <Card>
+            <Card.Header>{props.username?props.username:"Guest"}</Card.Header>
+            <Card.Body><img className="img-fluid" src={props.imgurl}/></Card.Body>
+        </Card>
     )
 }
 
