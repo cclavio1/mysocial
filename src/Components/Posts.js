@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-
+import { Card,Button } from "react-bootstrap"
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 export default function Posts(props){
     let [posts,setPosts]=useState(<div className="text-center">
@@ -13,9 +15,18 @@ useEffect(()=>{
         
         setPosts(result.map(obj=>{
             return(
-                <div key={obj._id}>
+                <Card className="text-start">
+                <Card.Header>{obj.username}</Card.Header>
+                <Card.Body>
+                    <Card.Text>
                     {obj.text}
-                </div>
+                    </Card.Text>
+                    <Card.Text>
+                    {obj.likes}
+                    </Card.Text>
+                    <Button className="bg-white"><ThumbUpIcon color="primary"/></Button>
+                </Card.Body>
+                </Card>
             )
         }))
     })
