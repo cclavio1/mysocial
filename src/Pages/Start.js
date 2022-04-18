@@ -8,12 +8,12 @@ export default function Start(){
     return(
         <div style={{backgroundImage:"url(https://www.freevector.com/uploads/vector/preview/30546/Pastel_Background_vector_5.jpg)",minHeight:"100vh"}}>
         <NavBar/>
-        <Container className="text-center">
+        <Container className="text-center container-fluid">
           <Row>
-            <Col xs={3}>
+            <Col md={3} className="d-none d-md-block align-items-center">
               <Profile />
             </Col>
-            <Col xs={9}>
+            <Col md={9}xs={12}>
               <CreatePost/>
               <Posts />
             </Col>

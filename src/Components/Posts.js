@@ -15,7 +15,7 @@ useEffect(()=>{
         
         setPosts(result.map(obj=>{
             return(
-                <Card className="text-start">
+                <Card className="text-start m-3">
                 <Card.Header>{obj.username}</Card.Header>
                 <Card.Body>
                     <Card.Text>
