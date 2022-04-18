@@ -10,8 +10,14 @@ useEffect(()=>{
     fetch('https://pacific-harbor-39764.herokuapp.com/api/posts')
     .then(result=>result.json())
     .then(result=>{
-        setPosts(posts=result)
-        console.log(result)
+        
+        setPosts(result.map(obj=>{
+            return(
+                <div key={obj._id}>
+                    {obj.text}
+                </div>
+            )
+        }))
     })
 },[])
     return(
