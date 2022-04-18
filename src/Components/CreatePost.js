@@ -6,10 +6,6 @@ export default function CreatePost(props){
     const [show, setShow] = useState(false);
     const handleClose = () =>{ 
         setShow(false)
-        if(props.username==null){
-            alert('You need to log in first!')
-        }else{
-            
         fetch('https://pacific-harbor-39764.herokuapp.com/api/posts/',{
             method:"POST",
             headers:{
@@ -23,11 +19,15 @@ export default function CreatePost(props){
         }).then(result=>result.json())
         .then(result=>{
             
-        })
-        
+        })        
+    };
+    const handleShow = () => {
+        if(props.username==null){
+            alert('You need to log in first!')
+        }else{
+        setShow(true)
         }
     };
-    const handleShow = () => setShow(true);
     const [post,setPost]= useState("")
 
     return(
