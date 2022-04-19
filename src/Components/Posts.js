@@ -45,8 +45,9 @@ export default function Posts({objProps}){
                 <Typography>
                 {likes}
                 </Typography>
-                <CardActions>
+                <CardActions className="justify-content-between">
                     <Button className="bg-white"><ThumbUpIcon color="primary"/></Button>
+                    <div className="d-flex align-items-center">
                     <Typography>View Comments</Typography>
                     <ExpandMore
                     expand={expanded}
@@ -56,10 +57,11 @@ export default function Posts({objProps}){
                     >
                         <ExpandMoreIcon />
                     </ExpandMore>
+                    </div>
                 </CardActions>
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
-                     <CardContent>Sample</CardContent>
+                     <CardContent>SampleComment</CardContent>
 
                     </Collapse>
                 
