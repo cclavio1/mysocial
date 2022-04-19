@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap"
 import CreatePost from "../Components/CreatePost"
 import NavBar from "../Components/NavBar"
-import Posts from "../Components/Posts"
+import PostsContainer from "../Components/PostsContainer"
 import Profile from "../Components/Profile"
 
 export default function Start(){
@@ -15,7 +15,7 @@ export default function Start(){
             </Col>
             <Col lg={9}xs={12}>
               <CreatePost/>
-              <Posts />
+              <PostsContainer />
             </Col>
           </Row>
         </Container>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Posts from "./Posts"
 
 
@@ -9,9 +10,10 @@ export default function PostsContainer(){
         fetch('https://pacific-harbor-39764.herokuapp.com/api/posts')
         .then(result=>result.json())
         .then(result=>{
-            setPosts(result.map(post=>{
-                <Posts key={post._id} props={result} />
-            }))
+            setPosts(result.map(post=>
+                <Posts key={post._id} objProps={post} />
+            ))
+        
         })
     },[])    
 

@@ -17,16 +17,15 @@ const ExpandMore = styled((props) => {
       duration: theme.transitions.duration.shortest,
     }),
   }));
-export default function Posts({props}){
+export default function Posts({objProps}){
+    const {username,imgurl,text,likes} = objProps
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=> {
         setExpanded(expanded=!expanded)
-        console.log(expanded)
     }
-
-
+   
     return(
-        <Card className="text-start m-3" key={obj._id}>
+        <Card className="text-start m-3">
             <CardHeader 
                 avatar={<Avatar sx={{bgcolor:blue[500]}} alt="sample">{username[0].toUpperCase()}</Avatar>}
                 title={username}
@@ -69,7 +68,3 @@ export default function Posts({props}){
     )
 }
 
-
-Posts.defaultProps = {
-    posts:"empty"
-}
