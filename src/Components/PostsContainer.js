@@ -15,4 +15,9 @@ export default function PostsContainer(){
         })
     },[])    
 
+    return(
+        <div>
+            {posts}
+        </div>
+    )
 }
