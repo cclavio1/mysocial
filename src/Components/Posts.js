@@ -20,8 +20,10 @@ const ExpandMore = styled((props) => {
 export default function Posts({objProps}){
     const {username,imgurl,text,likes} = objProps
     let [expanded,setExpanded] = useState(false)
-    const handleExpandClick=()=> {
-        setExpanded(expanded=!expanded)
+    const handleExpandClick=()=>setExpanded(expanded=!expanded)
+    
+    const handleLikeClick=()=>{
+
     }
    
     return(
@@ -46,7 +48,7 @@ export default function Posts({objProps}){
                 {likes}
                 </Typography>
                 <CardActions className="justify-content-between">
-                    <Button className="bg-white"><ThumbUpIcon color="primary"/></Button>
+                    <Button className="bg-white" onClick={handleLikeClick}><ThumbUpIcon color="primary"/></Button>
                     <div className="d-flex align-items-center">
                     <Typography>View Comments</Typography>
                     <ExpandMore
