@@ -18,12 +18,12 @@ const ExpandMore = styled((props) => {
     }),
   }));
 export default function Posts({objProps}){
-    const {username,imgurl,text,likes} = objProps
+    const {_id,username,imgurl,text,likes} = objProps
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=>setExpanded(expanded=!expanded)
     
     const handleLikeClick=()=>{
-
+        
     }
    
     return(
