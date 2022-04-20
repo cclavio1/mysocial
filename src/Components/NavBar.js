@@ -68,7 +68,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
             <>
             <Modal show={openLogin} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                <Modal.Title>Login</Modal.Title>
+                
                 </Modal.Header>
                 <Modal.Body className='text-center'>
 
