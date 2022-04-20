@@ -84,15 +84,24 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                     <Form.Group className='m-2'>
                         <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
                     </Form.Group>
-                    <Form.Group className='m-2'>
-                        <TextField id="margin-dense" label="First Name" variant="outlined" onChange={(e)=>setFname(e.target.value)}/>
-                    </Form.Group>
                     <Form.Group>
                         <Button>Login</Button>
                     </Form.Group>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     On development...
+                    <Form.Group>
+                        <TextField id="margin-dense" label="Username" variant="outlined" onChange={(e)=>setUsername(e.target.value)}/>
+                    </Form.Group>
+                    <Form.Group className='m-2'>
+                        <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
+                    </Form.Group>
+                    <Form.Group className='m-2'>
+                        <TextField id="margin-dense" label="First Name" variant="outlined" onChange={(e)=>setFname(e.target.value)}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Button>Login</Button>
+                    </Form.Group>
                 </TabPanel>
                 </Modal.Body>
             </Modal>
