@@ -40,6 +40,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
     const handleShow = () => setOpenLogin(true);
     const [username,setUsername]=useState('')
     const [pw,setPw]=useState('')
+    const [fname,setFname]=useState('')
 
     const [value, setValue] = useState(0);
 
@@ -68,10 +69,8 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
             <>
             <Modal show={openLogin} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
-                
                 </Modal.Header>
                 <Modal.Body className='text-center'>
-
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs value={value} variant="fullWidth" onChange={handleChange} aria-label="basic tabs example" centered>
                         <Tab label="Login" {...a11yProps(0)} />
@@ -81,9 +80,12 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                 <TabPanel value={value} index={0}>
                     <Form.Group>
                         <TextField id="margin-dense" label="Username" variant="outlined" onChange={(e)=>setUsername(e.target.value)}/>
-                        </Form.Group>
-                        <Form.Group className='m-2'>
+                    </Form.Group>
+                    <Form.Group className='m-2'>
                         <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
+                    </Form.Group>
+                    <Form.Group className='m-2'>
+                        <TextField id="margin-dense" label="First Name" variant="outlined" onChange={(e)=>setFname(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
                         <Button>Login</Button>
