@@ -100,7 +100,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                         <TextField id="margin-dense" label="First Name" variant="outlined" onChange={(e)=>setFname(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
-                        <Button>Login</Button>
+                        <Button>Register</Button>
                     </Form.Group>
                 </TabPanel>
                 </Modal.Body>
