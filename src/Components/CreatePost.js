@@ -1,8 +1,7 @@
 import { useState } from "react";
 const { Modal,Button, Form } = require("react-bootstrap")
 
-export default function CreatePost(props){
-
+export default function CreatePost({loginPanelOpen,...next}){
     const [show, setShow] = useState(false);
     const handleClose = () =>{ 
         setShow(false)
@@ -12,7 +11,7 @@ export default function CreatePost(props){
                 "Content-type":"application/json"
             },
             body:JSON.stringify({
-                username:props.username,
+                username:localStorage.getItem('username'),
                 text:post,
                 imgurl:""
             })
@@ -22,8 +21,9 @@ export default function CreatePost(props){
         })        
     };
     const handleShow = () => {
-        if(props.username==null){
+        if(localStorage.getItem('username')==null){
             alert('You need to log in first!')
+            loginPanelOpen('true')
         }else{
         setShow(true)
         }
