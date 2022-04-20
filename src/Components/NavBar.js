@@ -73,7 +73,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                 <Modal.Body className='text-center'>
 
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                    <Tabs value={value} variant="fullWidth" onChange={handleChange} aria-label="basic tabs example" centered>
                         <Tab label="Login" {...a11yProps(0)} />
                         <Tab label="Register" {...a11yProps(1)} />
                     </Tabs>
