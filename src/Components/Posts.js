@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import {Button } from "react-bootstrap"
+import {Button, FormControl, FormGroup } from "react-bootstrap"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { styled,Avatar,Card, CardHeader,CardContent,
      Typography, CardMedia, CardActions, IconButton, Collapse} from "@mui/material";
@@ -21,9 +21,14 @@ export default function Posts({objProps}){
     const {_id,username,imgurl,text,likes} = objProps
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=>setExpanded(expanded=!expanded)
-    
+    let [comment,setComment]=useState('')
+
     const handleLikeClick=()=>{
         
+    }
+    const handleCommentClick=()=>{
+        alert('this feature is on development')
+        setComment('')
     }
    
     return(
@@ -63,7 +68,16 @@ export default function Posts({objProps}){
                 </CardActions>
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
-                     <CardContent>SampleComment</CardContent>
+                    <CardContent>
+                         <Typography>Comments...</Typography>
+                         <Typography>
+                             <FormGroup className="d-flex m-1">
+                                <Avatar sx={{bgcolor:blue[500]}} alt="sample">{username[0].toUpperCase()}</Avatar>
+                                <FormControl placeholder="Write a comment..." value={comment} onChange={(e)=>setComment(e.target.value)}></FormControl>
+                                <Button onClick={handleCommentClick}>Post</Button>
+                            </FormGroup>
+                         </Typography>
+                    </CardContent>
 
                     </Collapse>
                 
