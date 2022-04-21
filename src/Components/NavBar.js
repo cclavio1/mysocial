@@ -41,7 +41,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
     const [username,setUsername]=useState('')
     const [pw,setPw]=useState('')
     const [fname,setFname]=useState('')
-
+    const [lname,setLname]=useState('')
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -98,6 +98,9 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                     </Form.Group>
                     <Form.Group className='m-2'>
                         <TextField id="margin-dense" label="First Name" variant="outlined" onChange={(e)=>setFname(e.target.value)}/>
+                    </Form.Group>
+                    <Form.Group className='m-2'>
+                        <TextField id="margin-dense" label="Last Name" variant="outlined" onChange={(e)=>setLname(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
                         <Button>Register</Button>
