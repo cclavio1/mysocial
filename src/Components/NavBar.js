@@ -110,7 +110,8 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
     }
 
     const handleLogout=()=>{
-
+        localStorage.clear()
+        window.location.reload()
     }
     return(
         <div className='sticky-top' style={{
