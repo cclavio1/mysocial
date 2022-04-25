@@ -80,6 +80,9 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
         }
     }
 
+    const handleLoginClick=()=>{
+        
+    }
     return(
         <div className='sticky-top' style={{
             background: "rgb(8,0,143)",
@@ -117,7 +120,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                         <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
-                        <Button>Login</Button>
+                        <Button onClick={handleLoginClick}>Login</Button>
                     </Form.Group>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
