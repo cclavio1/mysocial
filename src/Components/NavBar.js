@@ -108,6 +108,10 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
             })
         }
     }
+
+    const handleLogout=()=>{
+
+    }
     return(
         <div className='sticky-top' style={{
             background: "rgb(8,0,143)",
@@ -121,7 +125,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                     {
                         localStorage.getItem("username")==null?                                
                         <a className='mx-5 btn btn-outline-light' onClick={handleShow}>Login</a>
-                        :<a className='mx-5 btn btn-outline-light'>Logout</a>
+                        :<a className='mx-5 btn btn-outline-light' onClick={handleLogout}>Logout</a>
                     }
                 </ol>
             </ul>
