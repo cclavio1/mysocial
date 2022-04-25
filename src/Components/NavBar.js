@@ -121,7 +121,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                     </Form.Group>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    On development...
+                   
                     <Form.Group>
                         <TextField id="margin-dense" label="Username" variant="outlined" onChange={(e)=>setUsername(e.target.value)}/>
                     </Form.Group>
