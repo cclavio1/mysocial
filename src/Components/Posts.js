@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import {Button, FormControl, FormGroup } from "react-bootstrap"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { styled,Avatar,Card, CardHeader,CardContent,
-     Typography, CardMedia, CardActions, IconButton, Collapse} from "@mui/material";
+     Typography, CardMedia, CardActions, IconButton, Collapse, Popper} from "@mui/material";
 import { blue } from "@mui/material/colors";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import Comments from "./Comments";
+import { Box } from "@mui/system";
 
 
 const ExpandMore = styled((props) => {
@@ -28,9 +29,18 @@ export default function Posts({objProps}){
     const handleLikeClick=()=>{
         
     }
-    const handleCommentClick=()=>{
-        alert('this feature is on development')
-
+    const [anchorEl, setAnchorEl] = useState(null);
+    const handlePopper = (event) => {
+      setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popper' : undefined;
+  
+    const handleCommentClick=(event)=>{
+        
+        if(comment==""){
+            handlePopper(event)
+        }
 
         setComment('')
     }
@@ -84,6 +94,12 @@ export default function Posts({objProps}){
                     </CardContent>
 
                     </Collapse>
+                    <Popper id={id} open={open} anchorEl={anchorEl}>
+                        <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
+                        Please type your comment on the text field
+                        </Box>
+                    </Popper>
+
                 
                 </CardContent>
         </Card>
