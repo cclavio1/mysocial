@@ -19,7 +19,8 @@ const ExpandMore = styled((props) => {
     }),
   }));
 export default function Posts({objProps}){
-    const {_id,username,imgurl,text,likes} = objProps
+    const {_id,username,imgurl,text,likes,comments} = objProps
+    console.log(comments)
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=>setExpanded(expanded=!expanded)
     let [comment,setComment]=useState('')
@@ -29,6 +30,8 @@ export default function Posts({objProps}){
     }
     const handleCommentClick=()=>{
         alert('this feature is on development')
+
+
         setComment('')
     }
    
@@ -70,7 +73,7 @@ export default function Posts({objProps}){
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                         <Typography>Comments...</Typography>
+                         <Typography><Comments/></Typography>
                          <Typography>
                              <FormGroup className="d-flex m-1">
                                 <Avatar sx={{bgcolor:blue[500]}} alt="sample">{username[0].toUpperCase()}</Avatar>
