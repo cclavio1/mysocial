@@ -45,8 +45,40 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
+        console.log(value)
       setValue(newValue);
     };
+    const handleRegisterClick = ()=>{
+        if(username==""||pw==""||fname==""||lname==""){
+            alert('Please Complete the form')
+        }else{
+            fetch("https://pacific-harbor-39764.herokuapp.com/api/users",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({
+                    username:username,
+                    password:pw,
+                    firstname:fname,
+                    lastname:lname
+                })
+            }).then(result=>result.json())
+            .then(result=>{
+                console.log(result)
+                if(result.status =="error"){
+                    alert("Username Already in use")
+                }else{
+                    alert("Registered Successfully")
+                    setValue(0)
+                    setUsername("")
+                    setPw('')
+                    setFname("")
+                    setLname('')
+                }
+            })
+        }
+    }
 
     return(
         <div className='sticky-top' style={{
@@ -94,7 +126,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                         <TextField id="margin-dense" label="Username" variant="outlined" onChange={(e)=>setUsername(e.target.value)}/>
                     </Form.Group>
                     <Form.Group className='m-2'>
-                        <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
+                        <TextField id="margin-dense" label="Password" type="password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
                     </Form.Group>
                     <Form.Group className='m-2'>
                         <TextField id="margin-dense" label="First Name" variant="outlined" onChange={(e)=>setFname(e.target.value)}/>
@@ -103,7 +135,7 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                         <TextField id="margin-dense" label="Last Name" variant="outlined" onChange={(e)=>setLname(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
-                        <Button>Register</Button>
+                        <Button onClick={handleRegisterClick}>Register</Button>
                     </Form.Group>
                 </TabPanel>
                 </Modal.Body>
