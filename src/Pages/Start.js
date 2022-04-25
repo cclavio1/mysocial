@@ -14,7 +14,7 @@ export default function Start(){
         <Container className="text-center container-fluid">
           <Row>
             <Col lg={3} className="d-none d-lg-block">
-              <Profile/>
+              <Profile username={localStorage.getItem("username")}/>
             </Col>
             <Col lg={9}xs={12}>
               <CreatePost loginPanelOpen={setOpenLogin}/>

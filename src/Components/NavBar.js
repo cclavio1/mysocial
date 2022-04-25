@@ -43,6 +43,8 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
     const [fname,setFname]=useState('')
     const [lname,setLname]=useState('')
     const [value, setValue] = useState(0);
+    const [lusername,setLusername] = useState('')
+    const [lpw,setLpw] = useState('')
 
     const handleChange = (event, newValue) => {
         console.log(value)
@@ -81,7 +83,30 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
     }
 
     const handleLoginClick=()=>{
-        
+        if(lusername==""||lpw==""){
+            alert("please complete the form")
+        }else{
+            fetch("https://pacific-harbor-39764.herokuapp.com/api/users/login",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({
+                    username:lusername,
+                    password:lpw
+                })
+            }).then(result=>result.json())
+            .then(result=>{
+                if(result.status=="error"){
+                    alert(result.error)
+                }else{
+                    alert("Login Successful")
+                    localStorage.setItem("token",result.token)
+                    localStorage.setItem("username",lusername)
+                    window.location.reload()
+                }
+            })
+        }
     }
     return(
         <div className='sticky-top' style={{
@@ -114,10 +139,10 @@ export default function NavBar({setOpenLogin,openLogin,...next}){
                 </Box>
                 <TabPanel value={value} index={0}>
                     <Form.Group>
-                        <TextField id="margin-dense" label="Username" variant="outlined" onChange={(e)=>setUsername(e.target.value)}/>
+                        <TextField id="margin-dense" label="Username" variant="outlined" onChange={(e)=>setLusername(e.target.value)}/>
                     </Form.Group>
                     <Form.Group className='m-2'>
-                        <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setPw(e.target.value)}/>
+                        <TextField id="margin-dense" label="Password" variant="outlined" onChange={(e)=>setLpw(e.target.value)}/>
                     </Form.Group>
                     <Form.Group>
                         <Button onClick={handleLoginClick}>Login</Button>
