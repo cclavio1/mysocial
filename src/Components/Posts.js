@@ -40,9 +40,11 @@ export default function Posts({objProps}){
         
         if(comment==""){
             handlePopper(event)
-        }
+        }else{
 
-        setComment('')
+
+            setComment('')
+        }    
     }
    
     return(
