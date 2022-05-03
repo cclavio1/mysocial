@@ -1,7 +1,13 @@
 
 
-export default  function Comments(comments){
+export default  function Comments({comments}){
+        console.log(comments)
+        let render = comments.map(com=>{
+            return(
+                <div>{com.comment}</div>
+            )
+        })
     return(
-        <div>Comments...</div>
+        <div>{render}</div>
     )
 }

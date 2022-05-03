@@ -96,7 +96,7 @@ export default function Posts({objProps}){
 
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                         <Typography><Comments/></Typography>
+                         <Typography><Comments comments={comments}/></Typography>
                          <Typography>
                              <FormGroup className="d-flex m-1">
                                 <Avatar sx={{bgcolor:blue[500]}} alt="sample">{username[0].toUpperCase()}</Avatar>
