@@ -22,7 +22,13 @@ const ExpandMore = styled((props) => {
 export default function Posts({objProps}){
     const {_id,username,imgurl,text,likes,comments} = objProps
     let [expanded,setExpanded] = useState(false)
-    const handleExpandClick=()=>setExpanded(expanded=!expanded)
+    const handleExpandClick=()=>{
+        if(localStorage.getItem("username")==null){
+            alert('You need to log in first!')
+        }else{
+            setExpanded(expanded=!expanded)
+        }
+    }
     let [comment,setComment]=useState('')
     const handleLikeClick=()=>{
         
