@@ -24,7 +24,6 @@ export default function Posts({objProps}){
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=>setExpanded(expanded=!expanded)
     let [comment,setComment]=useState('')
-    console.log(_id)
     const handleLikeClick=()=>{
         
     }
@@ -43,7 +42,7 @@ export default function Posts({objProps}){
             //save comment
             fetch(`https://pacific-harbor-39764.herokuapp.com/api/posts/comment/id=${_id}`,{
                 method:"POST",
-                Headers:{
+                headers:{
                     "Content-type":"application/json"
                 },
                 body:JSON.stringify({
@@ -54,6 +53,7 @@ export default function Posts({objProps}){
             .then(result=>{
                 console.log(result)
                 setComment('')
+                window.location.reload()
             })
         }    
     }
