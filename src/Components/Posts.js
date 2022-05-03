@@ -24,7 +24,7 @@ export default function Posts({objProps}){
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=>setExpanded(expanded=!expanded)
     let [comment,setComment]=useState('')
-
+    console.log(_id)
     const handleLikeClick=()=>{
         
     }
@@ -41,7 +41,7 @@ export default function Posts({objProps}){
             handlePopper(event)
         }else{
             //save comment
-            fetch(`http://localhost:3009/api/posts/comment/id=${_id}`,{
+            fetch(`https://pacific-harbor-39764.herokuapp.com/api/posts/comment/id=${_id}`,{
                 method:"POST",
                 Headers:{
                     "Content-type":"application/json"
