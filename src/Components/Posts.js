@@ -21,7 +21,6 @@ const ExpandMore = styled((props) => {
   }));
 export default function Posts({objProps}){
     const {_id,username,imgurl,text,likes,comments} = objProps
-    console.log(comments)
     let [expanded,setExpanded] = useState(false)
     const handleExpandClick=()=>setExpanded(expanded=!expanded)
     let [comment,setComment]=useState('')
@@ -41,9 +40,21 @@ export default function Posts({objProps}){
         if(comment==""){
             handlePopper(event)
         }else{
-
-
-            setComment('')
+            //save comment
+            fetch(`http://localhost:3009/api/posts/comment/id=${_id}`,{
+                method:"POST",
+                Headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({
+                    username:localStorage.getItem('username'),
+                    comment:comment
+                })
+            }).then(result=>result.json())
+            .then(result=>{
+                console.log(result)
+                setComment('')
+            })
         }    
     }
    
